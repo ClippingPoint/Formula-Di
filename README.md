@@ -28,4 +28,4 @@ This README would normally document whatever steps are necessary to get your app
 
  * To initiate a docker terminal on mac
 
- []()
+ [Quick terminal image](https://bytebucket.org/Khanhh/formual-di/raw/b0db6609321d1ee69eb048f605d7edaffd5d7f97/setup/quick_terminal.png?token=a1d19639db0b9794c452ba953e293e8f3810e77f)
