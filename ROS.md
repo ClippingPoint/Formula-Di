@@ -22,7 +22,17 @@ Copying <em>Didi Challenge</em> .bag files from your host(mac) to docker contain
   rosbag info approach_1.bag
 ```
 
-![Bag Info]()
+![Bag Info](https://bytebucket.org/Khanhh/formual-di/raw/bafb977b72fb1d15d32ca91c48dd149916556d51/setup/baginfo.png?token=0629ae6ebfec8672e7ad7c9505a57022b751c00f)
+
+```bash
+  rosbag play approach_1.bag
+```
+
+Hit space to stop then open another docker terminal running ros:indigo in order to check current broadcasting topics
+
+```bash
+  rostopic list
+```
 
 # References
 
