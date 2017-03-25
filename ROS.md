@@ -1,6 +1,6 @@
 ## First ROS bag
 
-What is [ROS bag](http://wiki.ros.org/Bags)
+What is [ROS bag](http://wiki.ros.org/Bags)?
 
 Copying <em>Didi Challenge</em> .bag files from your host(mac) to docker container
 
@@ -16,6 +16,13 @@ Copying <em>Didi Challenge</em> .bag files from your host(mac) to docker contain
 
 <em>Approcha_1.bag</em> size is around 500 MB, which makes it is easier to handle.
 
+3. "Play"
+
+```bash
+  rosbag info approach_1.bag
+```
+
+![Bag Info]()
 
 # References
 
