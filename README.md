@@ -38,24 +38,14 @@ This README would normally document whatever steps are necessary to get your app
   echo $ROS_PACAKGE_PATH
 ```
 
+  * Get into certain container (in docker teriminal)
+
+```bash
+  docker exec -it <mycontainer> bash
+```
+
 #### Troubleshoot
 
 [Rostopic: Error. Unable to communicate with master!](http://answers.ros.org/question/30106/error-unable-to-communicate-with-master/)c
-
-### First ROS bag
-
-Copying files from your host(mac) to docker container
-
-1. Check your container names
-```bash
-  docker ps -l
-```
-
-2. Copy files
-```bash
-  docker cp ~/some_folder/Didi-Training-Release-1/approach_1.bag  your_container_name:/approach_1.bag
-```
-
-<em>Approcha_1.bag</em> size is around 500 MB, which makes it is easier to handle.
 
 
