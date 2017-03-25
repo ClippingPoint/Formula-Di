@@ -34,6 +34,8 @@ Hit space to stop then open another docker terminal running ros:indigo in order 
   rostopic list
 ```
 
+![Bag topic list](https://bytebucket.org/Khanhh/formual-di/raw/80b773c13c8866dc41abcd798b31f0e10fede9cb/setup/bag_topic_list.png?token=648419427493c8e31fedde4d7c749a13b4aa4d8f)
+
 # References
 
 [ROS Indigo Cheatsheet](https://w3.cs.jmu.edu/spragunr/CS354_F15/handouts/ROSCheatsheet.pdf)
