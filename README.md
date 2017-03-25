@@ -27,3 +27,15 @@ This README would normally document whatever steps are necessary to get your app
 
 * Repo owner or admin
 * Other community or team contact
+
+
+
+# Starter Kit
+
+## Env setup
+
+### Docker on Mac
+
+[Download docker for mac](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac)
+
+#### Docker + Ros
