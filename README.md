@@ -16,4 +16,5 @@ This README would normally document whatever steps are necessary to get your app
 
 [Download docker for mac](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac)
 
+[Get started with Docker for Mac](https://docs.docker.com/docker-for-mac/)
 #### Docker + Ros
