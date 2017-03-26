@@ -4,19 +4,20 @@ What is [ROS bag](http://wiki.ros.org/Bags)?
 
 Copying <em>Didi Challenge</em> .bag files from your host(mac) to docker container
 
-1. Check your container names
+
+  Check your container names
 ```bash
   docker ps -l
 ```
 
-2. Copy files
+  Copy files
 ```bash
   docker cp ~/some_folder/Didi-Training-Release-1/approach_1.bag  your_container_name:/approach_1.bag
 ```
 
 <em>Approcha_1.bag</em> size is around 500 MB, which makes it is easier to handle.
 
-3. "Play"
+  "Play"
 
 ```bash
   rosbag info approach_1.bag
@@ -36,8 +37,19 @@ Hit space to stop then open another docker terminal running ros:indigo in order 
 
 ![Bag topic list](https://bytebucket.org/Khanhh/formual-di/raw/80b773c13c8866dc41abcd798b31f0e10fede9cb/setup/bag_topic_list.png?token=648419427493c8e31fedde4d7c749a13b4aa4d8f)
 
+### Visualization
+
+ * Install ros indigo rviz
+
+```bash
+  sudo apt-get install ros-indigo-rviz
+```
+
 # References
 
 [ROS Indigo Cheatsheet](https://w3.cs.jmu.edu/spragunr/CS354_F15/handouts/ROSCheatsheet.pdf)
 
+[Creating and Playing rosbag file (Hokuyo Lidar)](http://yasirkiani.blogspot.com/2015/03/creating-and-playing-rosbag-file.html)
+
+# Hardware List
 
