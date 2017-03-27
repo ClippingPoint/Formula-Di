@@ -45,6 +45,26 @@ Hit space to stop then open another docker terminal running ros:indigo in order 
   sudo apt-get install ros-indigo-rviz
 ```
 
+## RViz
+
+[Sample RViz plugin for visualizing Didi Data](https://github.com/jokla/didi_challenge_ros)
+
+## Core ROS concepts and Components
+
+[BaseLink and Robot Setup](http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF)
+
+[Static Transform Publisher](http://wiki.ros.org/tf)
+
+### TF/TF2
+
+Coordinate Frames and Transformation
+
+### Robot Setup
+
+# Related Robotics Concept
+
+Quaterion
+
 # References
 
 [ROS Indigo Cheatsheet](https://w3.cs.jmu.edu/spragunr/CS354_F15/handouts/ROSCheatsheet.pdf)
