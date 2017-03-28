@@ -76,6 +76,8 @@ Quaterion
 
 [Creating and Playing rosbag file (Hokuyo Lidar)](http://yasirkiani.blogspot.com/2015/03/creating-and-playing-rosbag-file.html)
 
+[How to visualize Lidar and Radar data in RViz](https://discussions.udacity.com/t/how-to-visualize-lidar-and-radar-data-in-rviz/232711)
+
 # Hardware List
 
 ## Drivers
