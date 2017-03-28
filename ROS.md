@@ -61,7 +61,12 @@ Coordinate Frames and Transformation
 
 ### Robot Setup
 
-# Related Robotics Concept
+## ROS + TensorFlow
+
+Test MNIST in ROS
+[Tensorflow in ROS](https://github.com/shunchan0677/Tensorflow_in_ROS/blob/master/tensorflow_in_ros_mnist.py)
+
+# Related Robotics Concepts
 
 Quaterion
 
@@ -72,4 +77,9 @@ Quaterion
 [Creating and Playing rosbag file (Hokuyo Lidar)](http://yasirkiani.blogspot.com/2015/03/creating-and-playing-rosbag-file.html)
 
 # Hardware List
+
+Velodyne Lidar
+
+
+
 
