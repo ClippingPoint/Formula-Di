@@ -49,6 +49,8 @@ Hit space to stop then open another docker terminal running ros:indigo in order 
 
 [Sample RViz plugin for visualizing Didi Data](https://github.com/jokla/didi_challenge_ros)
 
+[Udacity ROS launch file plug-in for visualizing ROS bag data](https://github.com/udacity/self-driving-car/tree/master/datasets/udacity_launch)
+
 ## Core ROS concepts and Components
 
 [BaseLink and Robot Setup](http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF)
