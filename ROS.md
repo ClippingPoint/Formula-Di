@@ -78,8 +78,10 @@ Quaterion
 
 # Hardware List
 
+## Drivers
+
 Velodyne Lidar
 
-
+[Velodyne HDL-32E](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20HDL-32E)
 
 
