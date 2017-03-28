@@ -37,6 +37,11 @@ Hit space to stop then open another docker terminal running ros:indigo in order 
 
 ![Bag topic list](https://bytebucket.org/Khanhh/formual-di/raw/80b773c13c8866dc41abcd798b31f0e10fede9cb/setup/bag_topic_list.png?token=648419427493c8e31fedde4d7c749a13b4aa4d8f)
 
+### Catkin
+
+Dependencies: CMAKE, GCC/build-essential
+
+
 ### Visualization
 
  * Install ros indigo rviz
@@ -88,4 +93,6 @@ Velodyne Lidar
 
 [Velodyne HDL-32E](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20HDL-32E)
 
+TODO:
 
+  * Create complete DockerFile
