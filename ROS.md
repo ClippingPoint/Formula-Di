@@ -41,7 +41,7 @@ Hit space to stop then open another docker terminal running ros:indigo in order 
 
 Dependencies: CMAKE, GCC/build-essential
 
-Catkin is required by Velodyne driver
+~~Catkin is required by Velodyne driver~~
 
 ### Visualization
 
