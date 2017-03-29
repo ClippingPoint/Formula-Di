@@ -101,9 +101,13 @@ Physical sensor setup:
 
 ## Drivers
 
-Velodyne Lidar
+### Velodyne Lidar
 
 [Velodyne HDL-32E](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20HDL-32E)
+
+```bash
+  sudo apt-get install ros-indigo-velodyne
+```
 
 TODO:
 
