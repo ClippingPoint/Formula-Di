@@ -41,6 +41,7 @@ Hit space to stop then open another docker terminal running ros:indigo in order 
 
 Dependencies: CMAKE, GCC/build-essential
 
+Catkin is required by Velodyne driver
 
 ### Visualization
 
@@ -59,6 +60,13 @@ Dependencies: CMAKE, GCC/build-essential
 ## Core ROS concepts and Components
 
 [BaseLink and Robot Setup](http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF)
+
+
+"Baselink" robot (Udacity Lincoln MKZ) setup, can be used to contrust TF?
+
+[Udacity MKZ URDF mesh](https://bitbucket.org/DataspeedInc/dbw_mkz_ros/src/0ee2d85ecbe101dca33316ed0855089e2c668707/dbw_mkz_description/urdf/mkz.urdf.xacro?at=default&fileviewer=file-view-default)
+
+Ideas: Use URDF and Gazebo?
 
 [Static Transform Publisher](http://wiki.ros.org/tf)
 
@@ -84,6 +92,10 @@ Quaterion
 [Creating and Playing rosbag file (Hokuyo Lidar)](http://yasirkiani.blogspot.com/2015/03/creating-and-playing-rosbag-file.html)
 
 [How to visualize Lidar and Radar data in RViz](https://discussions.udacity.com/t/how-to-visualize-lidar-and-radar-data-in-rviz/232711)
+
+Physical sensor setup:
+
+[Round 1 questions about dataset and evaluation](https://discussions.udacity.com/t/round-1-questions-about-dataset-and-evaluation/231931/8)
 
 # Hardware List
 
