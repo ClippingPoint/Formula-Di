@@ -37,3 +37,16 @@ tf is a package that lets the user keep track of multiple coordinate frames over
 [Transform Configuration](http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF#Transform_Configuration)
 
 [Applying rotations to coordinate frames using TF](http://answers.ros.org/question/87726/applying-rotations-to-coordinate-frames-using-tf/)
+
+[ROS SLAM Mapping](http://wiki.ros.org/slam_gmapping/Tutorials/MappingFromLoggedData)
+
+
+# References 
+
+[Youtube SLAM tutorials](https://www.youtube.com/watch?v=B2qzYCeT9oQ&index=1&list=PLpUPoM7Rgzi_7YWn14Va2FODh7LzADBSm)
+
+ROS Hector SLAM
+[F1/10 ROS SLAM Installation](http://f1tenth.org/lab_instructions/W3_T1_Using%20the%20Hector%20SLAM.pdf)
+
+Odometry, EKF, state estimation
+[SLAM for Dummies](https://ocw.mit.edu/courses/aeronautics-and-astronautics/16-412j-cognitive-robotics-spring-2005/projects/1aslam_blas_repo.pdf)
