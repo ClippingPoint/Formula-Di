@@ -48,6 +48,16 @@ tf is a package that lets the user keep track of multiple coordinate frames over
 [ROS SLAM Mapping](http://wiki.ros.org/slam_gmapping/Tutorials/MappingFromLoggedData)
 
 
+# Camera Model
+
+## Intrinsic/Extrinsic matrix
+
+[Intrinsic Matrix](http://ksimek.github.io/2013/08/13/intrinsic/)
+
+[Camera Calibration and 3D reconstruction (OpenCV)](http://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html)
+
+[Intrinsic Calibration](http://www.cs.unc.edu/~marc/tutorial/node37.html)
+
 # Control Theory
 
 [Steve Brunton Control Bootcamp (Optimal and modern control)](https://www.youtube.com/watch?v=Pi7l8mMjYVE&list=PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m)
