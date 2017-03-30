@@ -18,6 +18,13 @@ Global vs Local reference frame
 
 [Understanding quaternions](https://www.3dgep.com/understanding-quaternions/)
 
+```c
+  p = [0, x, y, z]
+```
+  After rotation
+
+  p_prime = q p q_inverse
+
 #### Axis angle and Rodrigues Formula
 
 [Axis Angle representation](https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation)
@@ -40,6 +47,11 @@ tf is a package that lets the user keep track of multiple coordinate frames over
 
 [ROS SLAM Mapping](http://wiki.ros.org/slam_gmapping/Tutorials/MappingFromLoggedData)
 
+## Kalman Filter, EKF and more
+
+[An explanation of the Kalman Filter](http://math.stackexchange.com/questions/840662/an-explanation-of-the-kalman-filter)
+
+[Question about Q matrix noise process covariance in Kalman filter](http://dsp.stackexchange.com/questions/21796/question-about-q-matrix-noise-process-covariance-in-kalman-filter)
 
 # References 
 
