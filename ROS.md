@@ -37,6 +37,38 @@ Hit space to stop then open another docker terminal running ros:indigo in order 
 
 ![Bag topic list](https://bytebucket.org/Khanhh/formual-di/raw/80b773c13c8866dc41abcd798b31f0e10fede9cb/setup/bag_topic_list.png?token=648419427493c8e31fedde4d7c749a13b4aa4d8f)
 
+
+Example: Visualize Velodyne data
+
+ Display -> PointCloud2 -> Topic -> /velodyne_points
+
+  Topic names can be found from 
+
+  ```bash
+    rosbag play -l <your_bagfile>
+  ```
+
+  In new terminal, go to dataset folder
+
+  ```bash
+    rosbag play -l 5mph.bag # -l stands for loop. it will play it in loop
+  ```
+
+### Find data structure
+  
+  ```bash
+    rostopic type <topic_name> | rosmsg show
+    rostopic type /image_raw | rosmsg show
+    rostopic echo -c /image_raw
+  ```
+
+  Other useful command
+
+  rqt_graph
+
+  rqt_bag
+
+
 ### Catkin
 
 Dependencies: CMAKE, GCC/build-essential
@@ -73,6 +105,14 @@ Ideas: Use URDF and Gazebo?
 ### TF/TF2
 
 Coordinate Frames and Transformation
+
+#### TF package to manage transfer matrices between frames
+
+[TF transformations](http://wiki.ros.org/tf/Overview/Transformations)
+
+[How to transform a pose](http://answers.ros.org/question/215656/how-to-transform-a-pose/)
+
+[Tf Using python](http://wiki.ros.org/tf/TfUsingPython)
 
 ### Robot Setup
 

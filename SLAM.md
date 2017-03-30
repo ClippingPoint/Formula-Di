@@ -25,9 +25,9 @@ Global vs Local reference frame
 
   p_prime = q p q_inverse
 
-#### Axis angle and Rodrigues Formula
-
 [Axis Angle representation](https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation)
+
+#### Axis angle and Rodrigues Formula
 
 #### Euler Angles
 
@@ -47,7 +47,8 @@ tf is a package that lets the user keep track of multiple coordinate frames over
 
 [ROS SLAM Mapping](http://wiki.ros.org/slam_gmapping/Tutorials/MappingFromLoggedData)
 
-# Classical Control
+
+# Control Theory
 
 [Steve Brunton Control Bootcamp (Optimal and modern control)](https://www.youtube.com/watch?v=Pi7l8mMjYVE&list=PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m)
 
