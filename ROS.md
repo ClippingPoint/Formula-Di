@@ -137,6 +137,16 @@ Physical sensor setup:
 
 [Round 1 questions about dataset and evaluation](https://discussions.udacity.com/t/round-1-questions-about-dataset-and-evaluation/231931/8)
 
+Watch it!
+
+Yousof Ebneddin
+
+[Didi Challenge DataSet, transformation issues](https://www.youtube.com/watch?v=5JsO8ifppgA)
+
+Watch it!
+
+[How to visualize the training data for Didi challenge in ROS](https://www.youtube.com/watch?v=RVFpwMAeBOA)
+
 # Hardware List
 
 ## Drivers
