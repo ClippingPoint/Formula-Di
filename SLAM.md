@@ -47,6 +47,10 @@ tf is a package that lets the user keep track of multiple coordinate frames over
 
 [ROS SLAM Mapping](http://wiki.ros.org/slam_gmapping/Tutorials/MappingFromLoggedData)
 
+# Classical Control
+
+[Steve Brunton Control Bootcamp (Optimal and modern control)](https://www.youtube.com/watch?v=Pi7l8mMjYVE&list=PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m)
+
 ## Kalman Filter, EKF and more
 
 [An explanation of the Kalman Filter](http://math.stackexchange.com/questions/840662/an-explanation-of-the-kalman-filter)
