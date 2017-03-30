@@ -12,10 +12,19 @@ Global vs Local reference frame
 
   * Transform (Translation and Rotation)
 
+### Rotation
 
-### Quaternions
+#### Quaternions
 
 [Understanding quaternions](https://www.3dgep.com/understanding-quaternions/)
+
+#### Axis angle and Rodrigues Formula
+
+[Axis Angle representation](https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation)
+
+#### Euler Angles
+
+Mostly for human readable purpose, seldomly used in actual calculation
 
 ### [ROS/TF](http://wiki.ros.org/tf)
 
