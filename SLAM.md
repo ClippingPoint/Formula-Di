@@ -58,6 +58,8 @@ tf is a package that lets the user keep track of multiple coordinate frames over
 
 [Intrinsic Calibration](http://www.cs.unc.edu/~marc/tutorial/node37.html)
 
+[Extrinsic Matrix](http://ksimek.github.io/2012/08/22/extrinsic/)
+
 # Control Theory
 
 [Steve Brunton Control Bootcamp (Optimal and modern control)](https://www.youtube.com/watch?v=Pi7l8mMjYVE&list=PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m)
