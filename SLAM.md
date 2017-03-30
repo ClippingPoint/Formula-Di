@@ -24,7 +24,9 @@ Global vs Local reference frame
 
 #### Euler Angles
 
-Mostly for human readable purpose, seldomly used in actual calculation
+Mostly for human readable purpose, seldomly used in actual calculation.
+
+Issue: Singularity, Gimbal lock
 
 ### [ROS/TF](http://wiki.ros.org/tf)
 
