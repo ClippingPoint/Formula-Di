@@ -60,6 +60,14 @@ tf is a package that lets the user keep track of multiple coordinate frames over
 
 [Extrinsic Matrix](http://ksimek.github.io/2012/08/22/extrinsic/)
 
+## PCL (Point Cloud Libray), transformation and 3D reconstruction
+
+Local Reference of frame and Global Reference of frame conversion
+
+Sample code
+
+[SLAM 14 joinMap](https://github.com/gaoxiang12/slambook/blob/master/ch5/joinMap/joinMap.cpp)
+
 # Control Theory
 
 [Steve Brunton Control Bootcamp (Optimal and modern control)](https://www.youtube.com/watch?v=Pi7l8mMjYVE&list=PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m)
