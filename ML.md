@@ -28,3 +28,10 @@ Another solution: Visual odometry
 
   regression vs soft-max
 
+Problem Formulation
+
+A. Voxel 3D Convolution
+
+B. Image Based 2D Convolution
+  
+  Modify our point cloud into a 2D projection of the environment; that is a panoramic depth image. "We do this by binning the raw VLP-16 scans into pixel representations"
