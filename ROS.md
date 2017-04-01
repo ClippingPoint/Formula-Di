@@ -139,6 +139,16 @@ Reading Challenge ROS bag file
 
 [Point Clouds and LiDAR module tutorial](http://ronny.rest/tutorials/module/pointclouds_01)
 
+## ROSLaunch
+
+What is [roslaunch](http://wiki.ros.org/roslaunch)
+
+ROSlaunch is a tool for easily launching multiple ROS nodes locally and remotely via SSH, as well as setting parameters on the _Parameter Server_.
+
+[Does a ROS launch start roscore when needed?](http://answers.ros.org/question/217107/does-a-roslaunch-start-roscore-when-needed/)
+
+Yes
+
 # Related Robotics Concepts
 
 Quaterion
