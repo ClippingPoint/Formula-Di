@@ -127,6 +127,12 @@ Reading Challenge ROS bag file
 
 [ROS and ROS bags Part2](http://ronny.rest/blog/post_2017_03_30_ros2/)
 
+## (Time) Synchronization
+
+[Sync ROS bag timestamps with ROS system](http://answers.ros.org/question/123256/sync-ros-bag-timestamps-with-ros-system/)
+
+[Message filter Time Synchronizer](http://wiki.ros.org/message_filters#Time_Synchronizer)
+
 # Related Robotics Concepts
 
 Quaterion
@@ -160,6 +166,8 @@ Watch it!
 ### Velodyne Lidar
 
 [Velodyne HDL-32E](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20HDL-32E)
+
+[Velodyne VLP 16 User manual](http://velodynelidar.com/docs/manuals/VLP-16%20User%20Manual%20and%20Programming%20Guide%2063-9243%20Rev%20A.pdf)
 
 ```bash
   sudo apt-get install ros-indigo-velodyne
