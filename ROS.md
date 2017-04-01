@@ -75,6 +75,26 @@ Dependencies: CMAKE, GCC/build-essential
 
 ~~Catkin is required by Velodyne driver~~
 
+## Python/C++ in ROS
+
+  Step by step
+  
+  1. Install and create catkin space
+    
+    Install from prebuilt package
+
+    ```bash
+      sudo apt-get install ros-indigo-catkin
+    ```
+
+    [Create a catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
+
+  2. Create a ROS package
+
+    [Creating ROS Package](http://wiki.ros.org/catkin/Tutorials/CreatingPackage)
+
+  3. [Writing Publisher Subscriber (python)](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29)
+
 ### Visualization
 
  * Install ros indigo rviz
