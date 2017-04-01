@@ -121,6 +121,12 @@ Coordinate Frames and Transformation
 Test MNIST in ROS
 [Tensorflow in ROS](https://github.com/shunchan0677/Tensorflow_in_ROS/blob/master/tensorflow_in_ros_mnist.py)
 
+## ROS bag 
+
+Reading Challenge ROS bag file
+
+[ROS and ROS bags Part2](http://ronny.rest/blog/post_2017_03_30_ros2/)
+
 # Related Robotics Concepts
 
 Quaterion
