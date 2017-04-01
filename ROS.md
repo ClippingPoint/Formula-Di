@@ -114,6 +114,10 @@ Coordinate Frames and Transformation
 
 [Tf Using python](http://wiki.ros.org/tf/TfUsingPython)
 
+Sample or transform pose using Quaternion in ROS
+
+[TF Baselink to GPS using position](https://github.com/didi-challenge-team-khodro/data_analysis/blob/master/src/data_discovery/src/tf_baselink_to_gps_using_position.cpp)
+
 ### Robot Setup
 
 ## ROS + TensorFlow
@@ -126,6 +130,10 @@ Test MNIST in ROS
 Reading Challenge ROS bag file
 
 [ROS and ROS bags Part2](http://ronny.rest/blog/post_2017_03_30_ros2/)
+
+Time synchronization
+
+[ROS and ROS bag Part3](http://ronny.rest/blog/post_2017_03_30_ros3_and_lidar/)
 
 ## (Time) Synchronization
 

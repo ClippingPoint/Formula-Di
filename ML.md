@@ -39,3 +39,9 @@ B. Image Based 2D Convolution
 
 
 [Vehicle Detection Based on LiDAR and Camera Fusion](http://www6.in.tum.de/Main/Publications/Zhang2014b.pdf)
+
+## Object Detection
+
+### CV
+
+[How to do Object Detection with OpenCV](https://www.youtube.com/watch?v=OnWIYI6-4Ss)
