@@ -133,6 +133,10 @@ Reading Challenge ROS bag file
 
 [Message filter Time Synchronizer](http://wiki.ros.org/message_filters#Time_Synchronizer)
 
+## Point Cloud
+
+[How to combine a camera image and a laser point cloud to create a color point cloud](http://answers.ros.org/question/99211/how-to-combine-a-camera-image-and-a-laser-pointcloud-to-create-a-color-pointcloud/)
+
 # Related Robotics Concepts
 
 Quaterion
