@@ -137,6 +137,8 @@ Reading Challenge ROS bag file
 
 [How to combine a camera image and a laser point cloud to create a color point cloud](http://answers.ros.org/question/99211/how-to-combine-a-camera-image-and-a-laser-pointcloud-to-create-a-color-pointcloud/)
 
+[Point Clouds and LiDAR module tutorial](http://ronny.rest/tutorials/module/pointclouds_01)
+
 # Related Robotics Concepts
 
 Quaterion
