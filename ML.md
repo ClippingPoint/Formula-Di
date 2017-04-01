@@ -35,3 +35,7 @@ A. Voxel 3D Convolution
 B. Image Based 2D Convolution
   
   Modify our point cloud into a 2D projection of the environment; that is a panoramic depth image. "We do this by binning the raw VLP-16 scans into pixel representations"
+
+
+
+[Vehicle Detection Based on LiDAR and Camera Fusion](http://www6.in.tum.de/Main/Publications/Zhang2014b.pdf)
