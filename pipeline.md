@@ -3,10 +3,13 @@
 
 [Udacity U net vehicle detection](https://github.com/udacity/self-driving-car/tree/master/vehicle-detection/u-net)
 
+[hengck23](https://github.com/hengck23/didi-udacity-2017)
 
 ## Steering node/models
 
 [Udacity Steering models](https://github.com/udacity/self-driving-car/tree/master/steering-models)
+
+[Small energy efficient SqueezeDet](https://github.com/BichenWuUCB/squeezeDet)
 
 
 ## Udacity Challenge Pipeline example
@@ -40,3 +43,6 @@
 ## Kalman Filter
 
 [ROS + Kalman Filter CPP](https://github.com/pjsdream/pcml)
+
+
+

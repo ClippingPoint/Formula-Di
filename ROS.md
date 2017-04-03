@@ -95,6 +95,10 @@ Dependencies: CMAKE, GCC/build-essential
 
   3. [Writing Publisher Subscriber (python)](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29)
 
+### TroubleShoot
+
+  * If you encounter package not found error, make sure you compile ROS package using _catkin_make_, after compilation, run devel/setup.bash in your catkin ROS package workspace to set up path env
+
 ### Visualization
 
  * Install ros indigo rviz
