@@ -48,4 +48,39 @@ This README would normally document whatever steps are necessary to get your app
 
 [Rostopic: Error. Unable to communicate with master!](http://answers.ros.org/question/30106/error-unable-to-communicate-with-master/)c
 
+#
 
+## Data integration
+
+Files under /scripts are created to easily execute admin tasks such as docker operations
+
+Examples:
+
+```bash
+  ./docker_cp <docker_container_name>:/root/base_line ~/my_local_ws
+```
+
+```bash
+  ./exec_bash <docker_container_name>
+```
+
+### Lidar data integration
+
+  After point_cloud conversion, Velodyne point cloud pc2 has below format for each data point, see ```data_integration/process.py single_frame``` for example
+
+  [Velodyne PC2](https://bytebucket.org/Khanhh/formual-di/raw/e509144cd56e51306b20cfe9f585b135621a1fc9/setup/velodyne_pc2.png?token=4dec74e58b529ab4ac355845b99e9e2a598caabe)
+
+  data pack format [X, Y, Z, Intensity, Ring_number]
+
+
+References: 
+
+Data format:
+
+[Velodyne pointcloud point types](https://github.com/ros-drivers/velodyne/blob/master/velodyne_pointcloud/include/velodyne_pointcloud/point_types.h)
+
+[Organizing point cloud from HDL-32e](http://answers.ros.org/question/59743/organizing-point-cloud-from-hdl-32e/)
+
+[Accessing layers in velodyne point cloud](http://answers.ros.org/question/132811/accessing-layers-in-velodyne-point-cloud/)
+
+[Velodyne ROS driver ring sequence](https://github.com/ros-drivers/velodyne/blob/master/velodyne_driver/include/velodyne_driver/ring_sequence.h)
