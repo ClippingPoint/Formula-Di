@@ -44,6 +44,8 @@ This README would normally document whatever steps are necessary to get your app
   docker exec -it <mycontainer> bash
 ```
 
+[How to continue a docker which is exited](http://stackoverflow.com/questions/21928691/how-to-continue-a-docker-which-is-exited)
+
 #### Troubleshoot
 
 [Rostopic: Error. Unable to communicate with master!](http://answers.ros.org/question/30106/error-unable-to-communicate-with-master/)c
