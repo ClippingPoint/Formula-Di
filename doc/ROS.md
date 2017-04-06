@@ -221,6 +221,24 @@ Watch it!
   sudo apt-get install ros-indigo-velodyne
 ```
 
+#### Velodyne ROS node
+
+Run ros nodelet convert recorded bag velodyne_packet to velodyne_points
+
+```bash
+  rosrun nodelet nodelet standalone velodyne_pointcloud/CloudNodelet
+```
+
+[Velodyne_point_cloud wiki Example 2.1.4](http://wiki.ros.org/velodyne_pointcloud)
+
+Then play rosbag
+
+```bash
+  rosbag play -l some.bag
+```
+
+Check rostopic list in different bash, we will see ```velodyne_pointcloud``` topic
+
 TODO:
 
   * Create complete DockerFile
