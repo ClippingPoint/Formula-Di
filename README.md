@@ -72,6 +72,10 @@ The repo contains modified version of udacity provided toolchain which works for
 
 TODO: Figure out how to do proper coordinate transformation on dataset1, since dataset1 doesn't have meanningful quaternion data
 
+#### Lidar node example under ROS catkin
+
+[ROS catkin can't find cv2 issue](https://devtalk.nvidia.com/default/topic/952664/ros-quot-catkin_make-quot-cannot-find-opencvconfig-cmake/?offset=7)
+
 ### Lidar data integration
 
   After point_cloud conversion, Velodyne point cloud pc2 has below format for each data point, see ```data_integration/process.py single_frame``` for example
@@ -79,6 +83,8 @@ TODO: Figure out how to do proper coordinate transformation on dataset1, since d
   [Velodyne PC2](https://bytebucket.org/Khanhh/formual-di/raw/e509144cd56e51306b20cfe9f585b135621a1fc9/setup/velodyne_pc2.png?token=4dec74e58b529ab4ac355845b99e9e2a598caabe)
 
   data pack format [X, Y, Z, Intensity, Ring_number]
+
+  [Manual timestamp synchronization](https://gist.github.com/wkentaro/2b38d8eb914c729197c6)
 
 
 References: 
