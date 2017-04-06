@@ -66,6 +66,12 @@ Examples:
   ./exec_bash <docker_container_name>
 ```
 
+### Udacity/didi tracklet toolchain
+
+The repo contains modified version of udacity provided toolchain which works for both dataset1 and dataset2. 
+
+TODO: Figure out how to do proper coordinate transformation on dataset1, since dataset1 doesn't have meanningful quaternion data
+
 ### Lidar data integration
 
   After point_cloud conversion, Velodyne point cloud pc2 has below format for each data point, see ```data_integration/process.py single_frame``` for example
