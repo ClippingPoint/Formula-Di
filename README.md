@@ -86,6 +86,8 @@ TODO: Figure out how to do proper coordinate transformation on dataset1, since d
 
   [Manual timestamp synchronization](https://gist.github.com/wkentaro/2b38d8eb914c729197c6)
 
+  In _dataset 2_, velodyne packets topics are provided instead of velodyne point_clouds see Wiki ROS, _velodyne ROS node_ for more information
+
 
 References: 
 
