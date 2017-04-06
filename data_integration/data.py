@@ -32,70 +32,71 @@ class data:
 		topics: ROS topic can be found using `rosbag info some.bag`
 		eg. /velodyne_points
 		"""
-		bag = Bag(self._file_path, 'r')
-		self._topics = bag.get_type_and_topic_info()[1].keys()
+		self._bag = Bag(self._file_path, 'r')
+		self._topics = self._bag.get_type_and_topic_info()[1].keys()
+		return self
 	
-	def read_images():
+	def read_images(self):
 		image_raw = '/image_raw'
 
-		self.images = bag.read_messages(topics=[image_raw])
-		self.images_count = bag.get_message_count(topic_filters=[image_raw])
+		self.images = self._bag.read_messages(topics=[image_raw])
+		self.images_count = self._bag.get_message_count(topic_filters=[image_raw])
 		return self
 
-	def read_velo():
+	def read_velo(self):
 		velodyne_points = '/velodyne_points'
-		self.lidar = bag.read_messages(topics=[velodyne_points]) 
-		self.lidar_count = bag.get_message_count(topic_filters=[velodyne_points])
+		self.lidar = self._bag.read_messages(topics=[velodyne_points]) 
+		self.lidar_count = self._bag.get_message_count(topic_filters=[velodyne_points])
 		return self
 	
-	def read_obs_gps():
+	def read_obs_gps(self):
 		"""
 		For challenge_1 only one obstacle detection is required
 		"""
 		obs1_gps_fix = '/obs1/gps/fix'
-		self.obs_gps_fix = bag.read_messages(topics=[obs1_gps_fix])		
-		self.obs_gps_fix_count = bag.read_message_count(topic_filters=[obs1_gps_fix])
+		self.obs_gps_fix = self._bag.read_messages(topics=[obs1_gps_fix])		
+		self.obs_gps_fix_count = self._bag.read_message_count(topic_filters=[obs1_gps_fix])
 	
 		obs1_gps_rtkfix = '/obs1/gps/rtkfix'
-		self.obs_gps_rtkfix = bag.read_messages(topics=[obs1_gps_rtkfix])
-		self.obs_gps_rtkfix_count = bag.read_message_count(topic_filters=[obs1_gps_rtkfix])
+		self.obs_gps_rtkfix = self._bag.read_messages(topics=[obs1_gps_rtkfix])
+		self.obs_gps_rtkfix_count = self._bag.read_message_count(topic_filters=[obs1_gps_rtkfix])
 
 		obs1_gps_time = '/obs1/gps/time'
-		self.obs_gps_time = bag.read_messages(topics=[obs1_gps_time])
-		self.obs_gps_time_count = bag.read_messages_count(topics=[obs1_gps_time])
+		self.obs_gps_time = self._bag.read_messages(topics=[obs1_gps_time])
+		self.obs_gps_time_count = self._bag.read_messages_count(topics=[obs1_gps_time])
 		return self
 	
-	def read_gps():
+	def read_gps(self):
 		"""
 		Capture vehicle?
 		"""
 		gps_fix = '/gps/fix'
-		self.gps_fix = bag.read_messages(topics=[gps_fix])		
-		self.gps_fix_count = bag.read_message_count(topic_filters=[gps_fix])
+		self.gps_fix = self._bag.read_messages(topics=[gps_fix])		
+		self.gps_fix_count = self._bag.read_message_count(topic_filters=[gps_fix])
 	
 		gps_rtkfix = '/gps/rtkfix'
-		self.gps_rtkfix = bag.read_messages(topics=[gps_rtkfix])
-		self.gps_rtkfix_count = bag.read_message_count(topic_filters=[gps_rtkfix])
+		self.gps_rtkfix = self._bag.read_messages(topics=[gps_rtkfix])
+		self.gps_rtkfix_count = self._bag.read_message_count(topic_filters=[gps_rtkfix])
 
 		gps_time = '/gps/time'
-		self.gps_time = bag.read_messages(topics=[gps_time])
-		self.gps_time_count = bag.read_messages_count(topics=[gps_time])
+		self.gps_time = self._bag.read_messages(topics=[gps_time])
+		self.gps_time_count = self._bag.read_messages_count(topics=[gps_time])
 		return self
 	
-	def read_radar():
+	def read_radar(self):
 		"""
 		"""
 		radar_points = '/radar/points'
-		self.radar_points = bag.read_messages(topics=[radar_points]) 
-		self.radar_points_count = bag.get_message_count(topic_filters=[radar_points])
+		self.radar_points = self._bag.read_messages(topics=[radar_points]) 
+		self.radar_points_count = self._bag.get_message_count(topic_filters=[radar_points])
 	
 		radar_range = '/radar/range'
-		self.radar_range = bag.read_messages(topics=[radar_range]) 
-		self.radar_range_count = bag.get_message_count(topic_filters=[radar_range])
+		self.radar_range = self._bag.read_messages(topics=[radar_range]) 
+		self.radar_range_count = self._bag.get_message_count(topic_filters=[radar_range])
 
 		radar_track = '/radar/track'
-		self.radar_track = bag.read_messages(topics=[radar_track])
-		self.radar_track_count = bag.get_message_count(radar_track)
+		self.radar_track = self._bag.read_messages(topics=[radar_track])
+		self.radar_track_count = self._bag.get_message_count(radar_track)
 		return self
 
 	def lidar_to_pc(self, lidar_msg):
