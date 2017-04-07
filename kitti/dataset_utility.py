@@ -98,3 +98,24 @@ def loadCalibrationRigid(filename, verbose=False):
       print(T, velo_dict[T])
       print('Tr', velo_dict['Tr'])
     return velo_dict['Tr']
+
+# TODO: Limit to 2D matrix
+def project(p_in, T):
+#   Dimension of data projection matrix
+    assert type(T) is 'numpy.ndarray'
+    assert type(p_in) is 'numpy.ndarray'
+    dim_norm, dim_proj = T.shape
+
+#   Do transformation in homogenouous coordinates
+    p2_in = p_in
+    if p2_in.shape[1] < dim_proj:
+        p2_in[:, dim_proj - 1] = 1
+    return
+#   (T*p2_in')'
+    p2_out = np.transpose(np.dot(T, np.transpose(p2_in)))
+
+#   Normalize homogeneous coordinates
+    denominator = np.outer(p2.out[:, dim_norm - 1], np.ones(dim_norm - 2))
+#   Element wise division
+    p_out = p2_out[:, 0: dim_norm-2]/denominator
+    return p_out
