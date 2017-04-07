@@ -8,6 +8,7 @@ approach_1 = data.data('./approach_1.bag').read_rosbag()
 approach_1.read_velo()
 
 topic, msg, t = approach_1.lidar.next()
+topic_im, msg_im, t_im = approach_1.image
 
 # One frame
 single_frame = approach_1.lidar_to_pc(msg)

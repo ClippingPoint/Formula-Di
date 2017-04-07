@@ -187,8 +187,8 @@ def main():
 
     include_images = False if msg_only else True
 
-    use_old_topics = False
-#    use_old_topics = True
+#    use_old_topics = False
+    use_old_topics = True
     if use_old_topics:
         filter_topics = CAMERA_TOPICS + [OLD_RTK_TOPIC]
     else:

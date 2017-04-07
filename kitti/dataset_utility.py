@@ -23,6 +23,12 @@ def read_files_by_lines(filename):
 def replace_var_from_dict_with_shape(var_dict, key, shape):
     var_dict[key] = np.array(var_dict[key]).reshape(shape)
 
+
+# TODO: 
+# 1 if calibration completely found?
+# 2 if rectification available
+# 3 Deal with delta_f delta_t
+
 def loadCalibrationCamToCam(filename, verbose=False):
     assert type(filename) is str
     cam_dict = read_files_by_lines(filename)
@@ -73,13 +79,22 @@ def loadCalibrationRigid(filename, verbose=False):
     for key, value in velo_dict.items():
         if key == 'calib_time':
             velo_dict[key] = value
-            if verbose:
-                print(key, value)
         else:
             array = []
             for i, string in enumerate(value.split(' ')[1:]):
                 array.append(float(string))
             velo_dict[key] = array
-            if verbose:
-                print(key, array)
+
+    R = 'R'
+    T = 'T'
+    replace_var_from_dict_with_shape(velo_dict, R, (3, 3))
+    replace_var_from_dict_with_shape(velo_dict, T, (3, 1))
+    # Tr = [R, T; 0 0 0 1]
+    Tr = np.vstack((np.hstack(velo_dict[R], velo_dict[T]), [0, 0, 0, 1]))
+    velo_dict['Tr'] = Tr
+
+    if verbose:
+      print(R, velo_dict[R])
+      print(T, velo_dict[T])
+      print('Tr', velo_dict['Tr'])
     return velo_dict
