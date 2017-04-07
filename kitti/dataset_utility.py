@@ -21,7 +21,7 @@ def read_files_by_lines(filename):
     return read_lines_to_dict(data)
 
 def replace_var_from_dict_with_shape(var_dict, key, shape):
-    var_dict[key] = np.array(var_dict[key]).reshape(shape)
+    return np.array(var_dict[key]).reshape(shape)
 
 
 # TODO: 
@@ -52,14 +52,14 @@ def loadCalibrationCamToCam(filename, verbose=False):
         R_0i = 'R_0' + str(i)
         T_0i = 'T_0' + str(i)
 
-        replace_var_from_dict_with_shape(cam_dict, S_rect_0i, (1, 2))
-        replace_var_from_dict_with_shape(cam_dict, R_rect_0i, (3, 3))
-        replace_var_from_dict_with_shape(cam_dict, P_rect_0i, (3, 4))
-        replace_var_from_dict_with_shape(cam_dict, S_0i, (1, 2))
-        replace_var_from_dict_with_shape(cam_dict, K_0i, (3, 3))
-        replace_var_from_dict_with_shape(cam_dict, D_0i, (1, 5))
-        replace_var_from_dict_with_shape(cam_dict, R_0i, (3, 3))
-        replace_var_from_dict_with_shape(cam_dict, T_0i, (3, 1))
+        cam_dict[S_rect_0i] = replace_var_from_dict_with_shape(cam_dict, S_rect_0i, (1, 2))
+        cam_dict[R_rect_0i] = replace_var_from_dict_with_shape(cam_dict, R_rect_0i, (3, 3))
+        cam_dict[P_rect_0i] = replace_var_from_dict_with_shape(cam_dict, P_rect_0i, (3, 4))
+        cam_dict[S_0i] = replace_var_from_dict_with_shape(cam_dict, S_0i, (1, 2))
+        cam_dict[K_0i] = replace_var_from_dict_with_shape(cam_dict, K_0i, (3, 3))
+        cam_dict[D_0i] = replace_var_from_dict_with_shape(cam_dict, D_0i, (1, 5))
+        cam_dict[R_0i] = replace_var_from_dict_with_shape(cam_dict, R_0i, (3, 3))
+        cam_dict[T_0i] = replace_var_from_dict_with_shape(cam_dict, T_0i, (3, 1))
 
     if verbose:
           print(S_rect_0i, cam_dict[S_rect_0i])
@@ -87,8 +87,8 @@ def loadCalibrationRigid(filename, verbose=False):
 
     R = 'R'
     T = 'T'
-    replace_var_from_dict_with_shape(velo_dict, R, (3, 3))
-    replace_var_from_dict_with_shape(velo_dict, T, (3, 1))
+    velo_dict[R] = replace_var_from_dict_with_shape(velo_dict, R, (3, 3))
+    velo_dict[T] = replace_var_from_dict_with_shape(velo_dict, T, (3, 1))
     # Tr = [R, T; 0 0 0 1]
     Tr = np.vstack((np.hstack(velo_dict[R], velo_dict[T]), [0, 0, 0, 1]))
     velo_dict['Tr'] = Tr
