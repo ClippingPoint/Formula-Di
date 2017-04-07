@@ -43,7 +43,7 @@ class data:
 		self.images_count = self._bag.get_message_count(topic_filters=[image_raw])
 		return self
 
-	def read_velo(self):
+	def read_velo_points(self):
 		velodyne_points = '/velodyne_points'
 		self.lidar = self._bag.read_messages(topics=[velodyne_points]) 
 		self.lidar_count = self._bag.get_message_count(topic_filters=[velodyne_points])
@@ -97,6 +97,14 @@ class data:
 		radar_track = '/radar/track'
 		self.radar_track = self._bag.read_messages(topics=[radar_track])
 		self.radar_track_count = self._bag.get_message_count(radar_track)
+		return self
+
+	def read_velo_packets(self):
+		"""
+		"""
+		velodyne_packets = '/velodyne_packets'
+		self.lidar_packets = self._bag.read_messages(topics=[velodyne_packets])
+		self.lidar_packets_count = self._bag.get_message_count(velodyne_packets)
 		return self
 
 	def lidar_to_pc(self, lidar_msg):
