@@ -97,4 +97,4 @@ def loadCalibrationRigid(filename, verbose=False):
       print(R, velo_dict[R])
       print(T, velo_dict[T])
       print('Tr', velo_dict['Tr'])
-    return velo_dict
+    return velo_dict['Tr']
