@@ -90,7 +90,7 @@ def loadCalibrationRigid(filename, verbose=False):
     velo_dict[R] = replace_var_from_dict_with_shape(velo_dict, R, (3, 3))
     velo_dict[T] = replace_var_from_dict_with_shape(velo_dict, T, (3, 1))
     # Tr = [R, T; 0 0 0 1]
-    Tr = np.vstack((np.hstack(velo_dict[R], velo_dict[T]), [0, 0, 0, 1]))
+    Tr = np.vstack((np.hstack((velo_dict[R], velo_dict[T])), [0, 0, 0, 1]))
     velo_dict['Tr'] = Tr
 
     if verbose:
