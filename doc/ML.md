@@ -45,3 +45,7 @@ B. Image Based 2D Convolution
 ### CV
 
 [How to do Object Detection with OpenCV](https://www.youtube.com/watch?v=OnWIYI6-4Ss)
+
+## LiDAR
+
+[Vehicle Detection from 3D Lidar Using Fully Convolutional Network](https://arxiv.org/pdf/1608.07916.pdf)
