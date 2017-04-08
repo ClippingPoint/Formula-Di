@@ -102,20 +102,22 @@ def loadCalibrationRigid(filename, verbose=False):
 # TODO: Limit to 2D matrix
 def project(p_in, T):
 #   Dimension of data projection matrix
-    assert type(T) is 'numpy.ndarray'
-    assert type(p_in) is 'numpy.ndarray'
+#    assert type(T) == 'numpy.ndarray'
+#    assert type(p_in) == 'numpy.ndarray'
     dim_norm, dim_proj = T.shape
 
+    p_in_row_count = p_in.shape[0]
 #   Do transformation in homogenouous coordinates
     p2_in = p_in
     if p2_in.shape[1] < dim_proj:
-        p2_in[:, dim_proj - 1] = 1
-    return
+        col_ones = np.ones(p_in_row_count)
+        col_ones.shape = (p_in_row_count, 1)
+# matlab:       p2_in[:, dim_proj - 1] = 1
+        p2_in = np.hstack((p2_in, col_ones))
 #   (T*p2_in')'
     p2_out = np.transpose(np.dot(T, np.transpose(p2_in)))
-
 #   Normalize homogeneous coordinates
-    denominator = np.outer(p2.out[:, dim_norm - 1], np.ones(dim_norm - 2))
+    denominator = np.outer(p2_out[:, dim_norm - 1], np.ones(dim_norm - 1))
 #   Element wise division
-    p_out = p2_out[:, 0: dim_norm-2]/denominator
+    p_out = p2_out[:, 0: dim_norm-1]/denominator
     return p_out
