@@ -3,3 +3,8 @@
 ./kitti/video
 ./kitti/devkit
 ./kitti/data
+
+./idea
+./idea/copyright
+
+.DS_Store
