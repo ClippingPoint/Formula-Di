@@ -122,6 +122,8 @@ Dependencies: CMAKE, GCC/build-essential
 
 [Udacity MKZ URDF mesh](https://bitbucket.org/DataspeedInc/dbw_mkz_ros/src/0ee2d85ecbe101dca33316ed0855089e2c668707/dbw_mkz_description/urdf/mkz.urdf.xacro?at=default&fileviewer=file-view-default)
 
+[URDF](http://wiki.ros.org/urdf)
+
 Ideas: Use URDF and Gazebo?
 
 [Static Transform Publisher](http://wiki.ros.org/tf)
@@ -223,6 +225,10 @@ Watch it!
 
 #### Velodyne ROS node
 
+[Introduction of velodyne ros pipeline](http://www.cs.utexas.edu/~piyushk/courses/spr12/slides/Week6b-print.pdf)
+
+[U Texas (Velodyne driver contributor) ROS pkg](https://github.com/austin-robot/utexas-art-ros-pkg)
+
 Run ros nodelet convert recorded bag velodyne_packet to velodyne_points
 
 ```bash
@@ -238,6 +244,12 @@ Then play rosbag
 ```
 
 Check rostopic list in different bash, we will see ```velodyne_pointcloud``` topic
+
+[How to extract the data from the packets of velodyne hdl 32e](http://answers.ros.org/question/53499/how-to-extract-the-data-from-the-packets-of-velodyne-hdl-32e/)
+
+[Convert velodyne scan to pointcloud2 from a rosbag](http://answers.ros.org/question/191972/convert-velodynescan-to-pointcloud2-from-a-rosbag-file/)
+
+[Questions about velodyne point cloud package](http://answers.ros.org/question/188725/some-questions-about-velodyne_pointcloud-package/)
 
 TODO:
 

@@ -44,6 +44,12 @@ This README would normally document whatever steps are necessary to get your app
   docker exec -it <mycontainer> bash
 ```
 
+Restart a docker exited
+
+```bash
+  docker start <docker_name>
+```
+
 [How to continue a docker which is exited](http://stackoverflow.com/questions/21928691/how-to-continue-a-docker-which-is-exited)
 
 #### Troubleshoot
