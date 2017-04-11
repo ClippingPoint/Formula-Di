@@ -1,3 +1,11 @@
+## ROS concepts
+    Service invocation
+Node -----------------> Node
+---------> topic ------>
+Publication     Subscription
+
+[ROS concepts wiki](http://wiki.ros.org/ROS/Concepts)
+
 ## First ROS bag
 
 What is [ROS bag](http://wiki.ros.org/Bags)?
@@ -250,6 +258,11 @@ Check rostopic list in different bash, we will see ```velodyne_pointcloud``` top
 [Convert velodyne scan to pointcloud2 from a rosbag](http://answers.ros.org/question/191972/convert-velodynescan-to-pointcloud2-from-a-rosbag-file/)
 
 [Questions about velodyne point cloud package](http://answers.ros.org/question/188725/some-questions-about-velodyne_pointcloud-package/)
+
+## ROS package
+
+Software in ROS is organized in packages. A packages might contain ROS nodes, a ROS-independent library, a dataset, configuration files, a third-party piece of software,
+or anything else that logically constitute a useful module.
 
 TODO:
 
