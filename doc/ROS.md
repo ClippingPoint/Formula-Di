@@ -264,6 +264,11 @@ Check rostopic list in different bash, we will see ```velodyne_pointcloud``` top
 Software in ROS is organized in packages. A packages might contain ROS nodes, a ROS-independent library, a dataset, configuration files, a third-party piece of software,
 or anything else that logically constitute a useful module.
 
+[Wiki catkin package](http://wiki.ros.org/catkin/package.xml)
+
+### Create
+
+
 TODO:
 
   * Create complete DockerFile
