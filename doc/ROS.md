@@ -290,3 +290,32 @@ Then build
 TODO:
 
   * Create complete DockerFile
+
+
+
+### Building Lidar Package from ros-examples ###
+
+How to install the requirements and compile the [ros-examples lidar package](https://github.com/mjshiggins/ros-examples) provided by Udacity.  These instructions assume the ROS distribution is Indigo.
+
+Requirements:  [PCL Library](http://pointclouds.org)
+and [catkin](http://wiki.ros.org/catkin)
+
+If catkin is not already installed:  ```sudo apt-get install ros-indigo-catkin```
+If needed install the dependencies:  ```sudo apt-get install cmake python-catkin-pkg python-empy python-nose python-setuptools libgtest-dev build-essential```
+
+Now install PCL:  ```sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
+sudo apt-get update
+sudo apt-get install libpcl-all```
+
+If downloaded already, do so now for [mjshiggins/ros-examples](https://github.com/mjshiggins/ros-examples).
+
+There is an errant ```CMakeLists.txt``` file that seems to interfere with the catkin build.  Delete it before building:  ```rm ros-examples/src/CMakeLists.txt```.
+Now go into the directory:  ```cd ros-examples```
+Make from there:  ```catkin_make```
+Note:  typically you would need to run ```catkin_create_pkg package_name node_name``` but this seems to have been done already and the ```CMakeLists.txt``` and ```package.xml``` are already in ```ros-examples/src/lidar/```.
+
+Before running the node it needs to be added to bash:  ```source ros-examples/devel/setup.bash```.  
+Now it should run:  ```rosrun lidar lidar_node```
+
+Try playing the bag file and see if it is placing images in the ```/images``` directory:  ```rosbag play -l name-of-file.bag```.
+
