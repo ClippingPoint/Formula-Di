@@ -268,7 +268,17 @@ or anything else that logically constitute a useful module.
 
 [Wiki catkin package](http://wiki.ros.org/catkin/package.xml)
 
-### Create
+1. Create catkin workspace
+
+[Create a catkin workspace](http://wiki.ros.org/cn/catkin/Tutorials/create_a_workspace)
+
+Optional: Creating a ROS package
+
+[Creating Package](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
+
+Then build
+
+[Writing a Python Writing Publisher Subscriber node](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29)
 
 
 TODO:
