@@ -243,6 +243,8 @@ Run ros nodelet convert recorded bag velodyne_packet to velodyne_points
   rosrun nodelet nodelet standalone velodyne_pointcloud/CloudNodelet
 ```
 
+[Processing velodyne data for dataset-2](https://discussions.udacity.com/t/processing-velodyne-data-for-dataset-2/237084/3)
+
 [Velodyne_point_cloud wiki Example 2.1.4](http://wiki.ros.org/velodyne_pointcloud)
 
 Then play rosbag
