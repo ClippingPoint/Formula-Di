@@ -319,3 +319,7 @@ Now it should run:  ```rosrun lidar lidar_node```
 
 Try playing the bag file and see if it is placing images in the ```/images``` directory:  ```rosbag play -l name-of-file.bag```.
 
+
+### Using ROS python script with velodyne packets
+
+After resolveing ROS dependencies mentioned in previous section, configuring catkin_ws, copy _catkin_ws_ under _data\_integration_ 
