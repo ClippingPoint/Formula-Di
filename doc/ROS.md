@@ -324,4 +324,30 @@ Try playing the bag file and see if it is placing images in the ```/images``` di
 
 After resolveing ROS dependencies mentioned in previous section, configuring catkin_ws, copy _catkin_ws_ under _data\_integration.
 
-A new cpp/python node _sync_ is created based on Udacity/ros-example
+A new cpp/python node _sync_ is created based on Udacity/ros-example. Package.xml and CMakeLists.txt are modified to map new node name: sync 
+
+Play ros bag
+
+```bash
+  rosbag play -l some.bag --clock # running under system clock?
+```
+
+Convert velodyne packets to velodyne point cloud
+
+```bash
+  rosrun nodelet nodelet standalone velodyne_pointcloud/CloudNodelet
+```
+
+Please see Velodyne ROS node section for velodyne_packets to velodyne_points conversion details.
+
+Run python version
+
+```bash
+  rosrun sync listener.py
+```
+
+Run cpp version
+
+```bash
+  rosrun sync sync_node
+```
