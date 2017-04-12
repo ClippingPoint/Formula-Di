@@ -322,4 +322,6 @@ Try playing the bag file and see if it is placing images in the ```/images``` di
 
 ### Using ROS python script with velodyne packets
 
-After resolveing ROS dependencies mentioned in previous section, configuring catkin_ws, copy _catkin_ws_ under _data\_integration_ 
+After resolveing ROS dependencies mentioned in previous section, configuring catkin_ws, copy _catkin_ws_ under _data\_integration.
+
+A new cpp/python node _sync_ is created based on Udacity/ros-example
