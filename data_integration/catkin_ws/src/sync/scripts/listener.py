@@ -36,28 +36,37 @@
 ## Simple talker demo that listens to std_msgs/Strings published 
 ## to the 'velodyne_points' topic
 import sys
+import numpy as np
+
 import rospy
 from std_msgs.msg import String
 from sensor_msgs.msg import PointCloud2
 from sensor_msgs.msg import Image
 import sensor_msgs.point_cloud2 as pc2
 
-import numpy as np
-#from cv_bridge import CvBridge, CvBridgeError
+from ros_proc import *
+
+# start_time = time.time()
+# end_time = time.time()
 
 class Listener:
     def __init__(self):
 	self.velo_sub = rospy.Subscriber('/velodyne_points', PointCloud2, self.lidar_callback)
-    #	self.image_sub = rospy.Subscriber('/image_raw', Image, self.image_callback)
+    	self.image_sub = rospy.Subscriber('/image_raw', Image, self.image_callback)
+	self._verbose = False
 
     def lidar_callback(self, lidar_msg):
     # TODO: get message count
     # print(lidar_msg.header)
-    	print(np.array(list(pc2.read_points(lidar_msg))))
+	point_cloud = np.array(list(pc2.read_points(lidar_msg)))
+	if self._verbose:
+	    rospy.loginfo(point_cloud)
+	point_cloud_proc(point_cloud)
+	rospy.loginfo(point_cloud_proc.filtered.shape)
 
     def image_callback(self, image_msg):
-    	Notimplementederror 
-
+	if self._verbose:
+	    rospy.loginfo(image_msg)
 
 
 def main(args):
