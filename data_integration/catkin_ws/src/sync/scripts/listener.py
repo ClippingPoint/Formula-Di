@@ -35,31 +35,44 @@
 
 ## Simple talker demo that listens to std_msgs/Strings published 
 ## to the 'velodyne_points' topic
-
+import sys
 import rospy
 from std_msgs.msg import String
 from sensor_msgs.msg import PointCloud2
+from sensor_msgs.msg import Image
 import sensor_msgs.point_cloud2 as pc2
-import numpy as np
 
-def lidar_callback(lidar_msg):
+import numpy as np
+#from cv_bridge import CvBridge, CvBridgeError
+
+class Listener:
+    def __init__(self):
+	self.velo_sub = rospy.Subscriber('/velodyne_points', PointCloud2, self.lidar_callback)
+    #	self.image_sub = rospy.Subscriber('/image_raw', Image, self.image_callback)
+
+    def lidar_callback(self, lidar_msg):
     # TODO: get message count
     # print(lidar_msg.header)
-    print(np.array(list(pc2.read_points(lidar_msg))))
+    	print(np.array(list(pc2.read_points(lidar_msg))))
 
-def listener():
+    def image_callback(self, image_msg):
+    	Notimplementederror 
 
+
+
+def main(args):
+    listener = Listener()
     # In ROS, nodes are uniquely named. If two nodes with the same
     # name are launched, the previous one is kicked off. The
     # anonymous=True flag means that rospy will choose a unique
     # name for our 'listener' node so that multiple listeners can
     # run simultaneously.
     rospy.init_node('listener', anonymous=True)
-
-    rospy.Subscriber('/velodyne_points', PointCloud2, lidar_callback)
-
-    # spin() simply keeps python from exiting until this node is stopped
-    rospy.spin()
+    try: 
+    	# spin() simply keeps python from exiting until this node is stopped
+	rospy.spin()
+    except KeyboardInterrupt:
+	print("Shutting down")
 
 if __name__ == '__main__':
-    listener()
+    main(sys.argv)
