@@ -267,6 +267,8 @@ Check rostopic list in different bash, we will see ```velodyne_pointcloud``` top
 
 [Questions about velodyne point cloud package](http://answers.ros.org/question/188725/some-questions-about-velodyne_pointcloud-package/)
 
+[Conversion from sensor message point cloud 2 to pcl point cloud](http://answers.ros.org/question/136916/conversion-from-sensor_msgspointcloud2-to-pclpointcloudt/)
+
 ## ROS package
 
 Software in ROS is organized in packages. A packages might contain ROS nodes, a ROS-independent library, a dataset, configuration files, a third-party piece of software,
@@ -337,6 +339,19 @@ Convert velodyne packets to velodyne point cloud
 ```bash
   rosrun nodelet nodelet standalone velodyne_pointcloud/CloudNodelet
 ```
+
+Use with template HDL32e coming with package:
+
+```bash
+  rosrun velodyne_pointcloud cloud_node _calibration:=32db.yaml
+```
+
+```32db.yaml``` file located under 
+
+```bash
+  /opt/ros/indigo/share/velodyne_pointcloud/params
+```
+
 
 Please see Velodyne ROS node section for velodyne_packets to velodyne_points conversion details.
 

@@ -16,6 +16,10 @@ R, T are the extrinsic parameters which denote the coordinate system transformat
 
 [CAMERA IMU Calibration](https://github.com/ethz-asl/kalibr/wiki/camera-imu-calibration)
 
+[Laser Camera Calibration](http://wiki.ros.org/laser_camera_calibration)
+
+[ROS answer camera laser calibration package](http://answers.ros.org/question/10280/camera-laser-calibration-package/)
+
 See results for possible matrix definition
 
 TODO:
