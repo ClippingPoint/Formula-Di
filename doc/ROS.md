@@ -352,6 +352,12 @@ Use with template HDL32e coming with package:
   /opt/ros/indigo/share/velodyne_pointcloud/params
 ```
 
+References:
+
+[Velodyne calibration](http://answers.ros.org/question/89756/velodyne-calibration/)
+
+[Velodyne point cloud yaml file does not work](http://answers.ros.org/question/229102/velodyne-point-cloud-node-doesnt-work/)
+
 
 Please see Velodyne ROS node section for velodyne_packets to velodyne_points conversion details.
 
