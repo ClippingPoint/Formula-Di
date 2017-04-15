@@ -372,3 +372,9 @@ Run cpp version
 ```bash
   rosrun sync sync_node
 ```
+
+## ROS signal system
+
+### init and shutdown
+
+[ROSPY signal shutdown examples](http://www.programcreek.com/python/example/39901/rospy.signal_shutdown)
