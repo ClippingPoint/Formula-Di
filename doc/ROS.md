@@ -6,6 +6,8 @@ Publication     Subscription
 
 [ROS concepts wiki](http://wiki.ros.org/ROS/Concepts)
 
+[ROS concepts](https://alecive.github.io/blog/2016/02/08/ROS-concepts/)
+
 ## First ROS bag
 
 What is [ROS bag](http://wiki.ros.org/Bags)?
@@ -185,9 +187,15 @@ Time synchronization
 
 What is [roslaunch](http://wiki.ros.org/roslaunch)
 
+It will also automatically be launched part of any roslaunch process if roslaunch detects that it is not running.
+
 ROSlaunch is a tool for easily launching multiple ROS nodes locally and remotely via SSH, as well as setting parameters on the _Parameter Server_.
 
 [Does a ROS launch start roscore when needed?](http://answers.ros.org/question/217107/does-a-roslaunch-start-roscore-when-needed/)
+
+[How to notify that a bag file has been completely played?](http://answers.ros.org/question/50184/how-to-notify-that-a-bag-file-has-been-completely-played/)
+
+[How to play rosbag using launch file](http://answers.ros.org/question/62811/how-to-play-rosbag-using-launch-file/)
 
 Yes
 
