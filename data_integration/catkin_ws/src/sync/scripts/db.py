@@ -51,7 +51,7 @@ class Storage():
 	"""
 	Save unsynced data
 	"""
-	camera_cols = ["timestamp", "camera_msg"]
+	camera_cols = ["timestamp", "image_msg"]
 	camera_df = pd.DataFrame(data=self.camera_dict, columns=camera_cols)
 	if file_format == 'pickle':
 	    camera_df.to_pickle(file_path)
