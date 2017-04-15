@@ -1,4 +1,5 @@
 from cv_bridge import CvBridge, CvBridgeError
+import numpy as np
 
 #import numpy as np
 """
@@ -7,25 +8,39 @@ from cv_bridge import CvBridge, CvBridgeError
 
 # http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython
 
-class image_proc:
-    def __init__(self, image_messages):
+class Image_proc:
+    """
+	Add your image preprocessor here
+	Such as transformation, cropping and so forth
+    """
+    def __init__(self):
 	self.images = []
-	self.image_converter(image_messages)
 
     def image_converter(self, image_messages):
 	for i, image_message in enumerate(image_messages):
     	    try: 
 	    	cv_image = bridge.imgmsg_to_cv2(image_message, desired_encoding="passthrough")
-		self.images.append(cv_image)
+		return cv_image
 	    except CvBridgeError as e:
 	    	rospy.logerr(e)
+    def push_image(self, image):
+	self.images.append(image)
 
-class point_cloud_proc:
-    def __init__(self, point_cloud):
-	self.filtered = None
-	self.point_cloud_filter(point_cloud)
+class Point_cloud_proc:
+    def __init__(self):
+	self.filtered = []
+	self.XYZI = []
 
-    def point_cloud_filter(self, point_cloud, fwd_range=(-20, 20.)), side_range=(-20., 20.), height_range=(-10., 10.)):
+    def push_point_cloud_filtered(self, filtered):
+	self.filtered.append(filtered)
+
+    def push_point_cloud_XYZI(self, xyzi):
+	self.XYZI.append(xyzi)
+    
+    def get_point_cloud_XYZI(self, point_cloud):
+	return point_cloud[:, 0:3]
+
+    def filter_point_cloud(self, point_cloud, fwd_range=(-20, 20.), side_range=(-20., 20.), height_range=(-10., 10.)):
         l_and = lambda *x: np.logical_and.reduce(x)
         l_or = lambda *x: np.logical_or.reduce(x)
 	"""
@@ -41,9 +56,9 @@ class point_cloud_proc:
     # Note left side is positive y axis in LIDAR coordinates
         f_filt = l_and((x_points > fwd_range[0]), (x_points < fwd_range[1]))
         s_filt = l_and((y_points > side_range[0]), (y_points < side_range[1]))
-	h_filt = l_and((z_points > height_range[0], (z_points < height_range[1])))
 	
-        filtered = l_and(f_filt, s_filt, h_filt)
+        # filtered = l_and(f_filt, l_and(s_filt, h_filt))
+        filtered = l_and(f_filt, s_filt)
         indices = np.argwhere(filtered).flatten()
 
     # KEEPERS
@@ -51,4 +66,11 @@ class point_cloud_proc:
         y_points = y_points[indices]
         z_points = z_points[indices]
 
-	self.filtered = np.hstack((x_points, y_points, z_points))
+	h_filt = l_and((z_points > height_range[0], (z_points < height_range[1])))
+	indices = np.argwhere(h_filt).flatten()
+	
+        x_points = x_points[indices]
+        y_points = y_points[indices]
+        z_points = z_points[indices]
+
+	return np.hstack((x_points, y_points, z_points))

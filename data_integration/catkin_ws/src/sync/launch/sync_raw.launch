@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="path" default="/root/data/"/>
+	<arg name="file_" default="10"/>
+
+	<!-- required true to kill other node once finish playing -->
+	<node pkg="sync" type="listener.py" name="sync"/>
+</launch>

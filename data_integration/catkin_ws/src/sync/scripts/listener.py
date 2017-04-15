@@ -45,43 +45,79 @@ from sensor_msgs.msg import Image
 import sensor_msgs.point_cloud2 as pc2
 
 from ros_proc import *
+from db import *
 
 # start_time = time.time()
 # end_time = time.time()
 
+# TODO: Record last a few frames of data then extroploate?
+# TODO: Teach/train mode vs real time testing predictio mode?
 class Listener:
-    def __init__(self):
+    def __init__(self, mode):
+	"""
+	When actual training, listener relies on bag files stops playing
+	Then starts training
+	"""
 	self.velo_sub = rospy.Subscriber('/velodyne_points', PointCloud2, self.lidar_callback)
     	self.image_sub = rospy.Subscriber('/image_raw', Image, self.image_callback)
 	self._verbose = False
+#	self._last_lidar_frame = None
+#	self._last_timestamp = None
+    	self.storage = Storage()
+	if mode == 'train':
+	    self.action = self._train_hook
+	elif mode == 'predict':
+	    self.action = self._predict_hook
+#	self.yes
 
     def lidar_callback(self, lidar_msg):
     # TODO: get message count
     # print(lidar_msg.header)
-	point_cloud = np.array(list(pc2.read_points(lidar_msg)))
+#	point_cloud = np.array(list(pc2.read_points(lidar_msg)))
 	if self._verbose:
 	    rospy.loginfo(point_cloud)
-	point_cloud_proc(point_cloud)
-	rospy.loginfo(point_cloud_proc.filtered.shape)
+	self.storage._lidar_to_dict(lidar_msg)
+
+#	self.action(lidar_msg)
 
     def image_callback(self, image_msg):
 	if self._verbose:
 	    rospy.loginfo(image_msg)
+	self.storage._image_to_dict(image_msg)
+
+#	self.action(image_msg)
+
+    def _train_hook(self, msg):
+	NotImplementedError
+
+    def _predict_hook():
+	NotImplementedError
+
+    def on_shutdown(self):
+	# TODO:save numpy/dict to db or file?
+	# Use with roslaunch?
+	rospy.loginfo("I AM shutting down!!")
+	# Synchronize then save to pickle file
+	#self.storage.lidar_dict
+	self.storage.save_lidar_raw()
+	self.storage.save_image_raw()
 
 
 def main(args):
-    listener = Listener()
+    # TODO: parameterize mode, compatiable to command line
+    listener = Listener(mode='train')
     # In ROS, nodes are uniquely named. If two nodes with the same
     # name are launched, the previous one is kicked off. The
     # anonymous=True flag means that rospy will choose a unique
     # name for our 'listener' node so that multiple listeners can
     # run simultaneously.
     rospy.init_node('listener', anonymous=True)
+    rospy.on_shutdown(listener.on_shutdown)
     try: 
     	# spin() simply keeps python from exiting until this node is stopped
 	rospy.spin()
     except KeyboardInterrupt:
-	print("Shutting down")
+	rospy.loginfo("Shutting down")
 
-if __name__ == '__main__':
-    main(sys.argv)
+
+main(sys.argv)
