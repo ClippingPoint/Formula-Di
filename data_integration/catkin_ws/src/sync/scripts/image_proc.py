@@ -8,11 +8,14 @@ Add your image preprocessor here
 Such as transformation, cropping and so forth
 """
 
-def image_message_to_cv2(self, image_messages):
-    try: 
-	cv_image = CvBridge.imgmsg_to_cv2(image_message, desired_encoding="passthrough")
-	return cv_image
-    except CvBridgeError as e:
-	rospy.logerr(e)
+class Image_Proc():
+    def __init__(self):
+	self.bridge = CvBridge()
+    def image_message_to_cv2(self, image_message):
+        try: 
+	    cv_image = self.bridge.imgmsg_to_cv2(image_message, desired_encoding="passthrough")
+	    return cv_image
+        except CvBridgeError as e:
+	    rospy.logerr(e)
 
 

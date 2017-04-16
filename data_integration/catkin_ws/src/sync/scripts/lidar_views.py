@@ -2,6 +2,10 @@
 from PIL import Image as PILImage
 import numpy as np
 import sys
+import sensor_msgs.point_cloud2 as pc2
+
+def pc2_msg_to_np(lidar_msg):
+	return np.array(list(pc2.read_points(lidar_msg)))
 
 def scale_to_255(a, min_, max_, dtype=np.uint8):
 	"""

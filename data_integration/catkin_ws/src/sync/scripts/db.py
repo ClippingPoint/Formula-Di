@@ -57,6 +57,7 @@ class Storage():
     	"""
 	lidar_cols = ["timestamp", "lidar_msg"]
 	lidar_df = pd.DataFrame(data=self.lidar_dict, columns=lidar_cols)
+        lidar_df.set_index(['timestamp'], inplace=True)
 	if file_format == 'pickle':
 	    lidar_df.to_pickle(file_path)
 	elif file_format == 'hdf5':
@@ -69,6 +70,7 @@ class Storage():
 	"""
 	camera_cols = ["timestamp", "image_msg"]
 	camera_df = pd.DataFrame(data=self.camera_dict, columns=camera_cols)
+        camera_df.set_index(['timestamp'], inplace=True)
 
 	if file_format == 'pickle':
 	    #camera_df.to_pickle(file_path)

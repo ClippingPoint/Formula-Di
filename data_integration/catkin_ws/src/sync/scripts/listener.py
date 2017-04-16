@@ -74,9 +74,8 @@ class Listener:
     def lidar_callback(self, lidar_msg):
     # TODO: get message count
     # print(lidar_msg.header)
-	point_cloud = np.array(list(pc2.read_points(lidar_msg)))
 	if self._verbose:
-	    rospy.loginfo(point_cloud)
+	    rospy.loginfo(pc2_msg_to_np(point_cloud))
 	self.storage._lidar_to_dict(lidar_msg)
 #	self.action(lidar_msg)
 #	self._last_lidar_frame = lidar_msg
