@@ -44,9 +44,11 @@ from sensor_msgs.msg import PointCloud2
 from sensor_msgs.msg import Image
 import sensor_msgs.point_cloud2 as pc2
 
-from ros_proc import *
 from db import *
+from lidar_views import *
+from image_proc import *
 
+from trainer import *
 # start_time = time.time()
 # end_time = time.time()
 
@@ -61,30 +63,29 @@ class Listener:
 	self.velo_sub = rospy.Subscriber('/velodyne_points', PointCloud2, self.lidar_callback)
     	self.image_sub = rospy.Subscriber('/image_raw', Image, self.image_callback)
 	self._verbose = False
-#	self._last_lidar_frame = None
-#	self._last_timestamp = None
+	self._last_lidar_frame = None
+	self._last_timestamp = None
     	self.storage = Storage()
 	if mode == 'train':
 	    self.action = self._train_hook
 	elif mode == 'predict':
 	    self.action = self._predict_hook
 #	self.yes
-
     def lidar_callback(self, lidar_msg):
     # TODO: get message count
     # print(lidar_msg.header)
-#	point_cloud = np.array(list(pc2.read_points(lidar_msg)))
+	point_cloud = np.array(list(pc2.read_points(lidar_msg)))
 	if self._verbose:
 	    rospy.loginfo(point_cloud)
 	self.storage._lidar_to_dict(lidar_msg)
-
 #	self.action(lidar_msg)
+#	self._last_lidar_frame = lidar_msg
 
     def image_callback(self, image_msg):
 	if self._verbose:
 	    rospy.loginfo(image_msg)
 	self.storage._image_to_dict(image_msg)
-
+	# self.storage._frame_to_dict(image_msg, self._last_lidaer_frame)
 #	self.action(image_msg)
 
     def _train_hook(self, msg):
@@ -96,11 +97,15 @@ class Listener:
     def on_shutdown(self):
 	# TODO:save numpy/dict to db or file?
 	# Use with roslaunch?
-	rospy.loginfo("I AM shutting down!!")
 	# Synchronize then save to pickle file
 	#self.storage.lidar_dict
 	self.storage.save_lidar_raw()
 	self.storage.save_image_raw()
+	# camera_df = self.storage.save_camera_df_index()
+	# camera_index_df = pd.DataFrame(index=camera_df.index)
+
+	# filtered = self.storage._interpolate_to_camera(camera_index_df, lidar_df)
+	rospy.loginfo("Shutting down sync node!!")
 
 
 def main(args):
@@ -113,7 +118,7 @@ def main(args):
     # run simultaneously.
     rospy.init_node('listener', anonymous=True)
     rospy.on_shutdown(listener.on_shutdown)
-    try: 
+    try:
     	# spin() simply keeps python from exiting until this node is stopped
 	rospy.spin()
     except KeyboardInterrupt:
