@@ -4,6 +4,12 @@ import numpy as np
 import sys
 import sensor_msgs.point_cloud2 as pc2
 
+"""
+To image plane coordinates, mostly for debugging.
+
+Required feature: 1. velopoint_cloud coordinate to display image coordinates
+"""
+
 def pc2_msg_to_np(lidar_msg):
 	return np.array(list(pc2.read_points(lidar_msg)))
 

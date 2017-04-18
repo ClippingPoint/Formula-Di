@@ -55,6 +55,8 @@ class Trainer:
 	return lidar_pc, image_arr
     def train(self):
 	image_frame_id = 10
+	lidar_pc, image_arr = self.sync(image_frame_id)
+	top_view = point_cloud_to_top(lidar_pc)
 	NotImplementedError
 	
 	
