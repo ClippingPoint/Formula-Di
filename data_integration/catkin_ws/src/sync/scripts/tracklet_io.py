@@ -99,12 +99,12 @@ class xml_reader():
 	obs_list = []
 	tracklets = xml_parser.parse_xml(xml_path)
 	for i, tracklet in enumerate(tracklets):
-	    print(lwh_to_box)
-	    print(dir(tracklet))
+#	    print(lwh_to_box)
+#	    print(dir(tracklet))
 	for frame_idx, tracklet_idx, object_type, box_vol, oriented_box in generate_boxes(tracklets):
 	#print(tracklets.size)
 	    obs_list.append(Obs(tracklet_idx, object_type, box_vol, oriented_box))
-	    print(obs_list[frame_idx].oriented_box)
+#	    print(obs_list[frame_idx].oriented_box)
 	return obs_list
 
 if __name__ == "__main__":

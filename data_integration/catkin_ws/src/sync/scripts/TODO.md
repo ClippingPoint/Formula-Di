@@ -41,3 +41,9 @@ which is different from KITTI dataset use centroid of bottom surface of tracklet
 # Fix yaw for velodyne data?
 
 [bag_to_kitti code](https://discussions.udacity.com/t/kitti-to-bag-py-code-is-wrong/241269)
+
+04/19/2017
+
+estimate_obstacle_posee
+
+# convert NED RTK coords of obstacle to capture vehicle body frame (velodyne coordinate frame) relative coordinates

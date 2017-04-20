@@ -25,7 +25,7 @@ class Syncer():
 	return None
     
     def min_time_diff(self, d_index, pivot):
-#http://stackoverflow.com/questions/34929261/get-value-form-pandas-df-column-that-is-closest-to-datetime64
+	#http://stackoverflow.com/questions/34929261/get-value-form-pandas-df-column-that-is-closest-to-datetime64
 	"""
 	return nearest time index of d_index
 	"""
