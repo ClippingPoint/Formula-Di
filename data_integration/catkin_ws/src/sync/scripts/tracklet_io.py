@@ -1,6 +1,8 @@
 import pandas as pd
 import parse_tracklet as xml_parser
 import numpy as np
+import poses_estimator as pe
+import generate_tracklet
 
 # TODO: Take Udacity reader code
 
@@ -84,7 +86,8 @@ class Obs(object):
 
     def __repr__(self):
         return str(self.tracklet_idx) + ' ' + str(self.object_type)
-    
+
+# Or maybe tracklet reader? 
 class xml_reader():
     def __init__(self):
 	"""
@@ -98,7 +101,7 @@ class xml_reader():
 	"""
 	obs_list = []
 	tracklets = xml_parser.parse_xml(xml_path)
-	for i, tracklet in enumerate(tracklets):
+#	for i, tracklet in enumerate(tracklets):
 #	    print(lwh_to_box)
 #	    print(dir(tracklet))
 	for frame_idx, tracklet_idx, object_type, box_vol, oriented_box in generate_boxes(tracklets):
@@ -106,6 +109,50 @@ class xml_reader():
 	    obs_list.append(Obs(tracklet_idx, object_type, box_vol, oriented_box))
 #	    print(obs_list[frame_idx].oriented_box)
 	return obs_list
+    def is_obs_in_view(self):
+	"""
+	Return True or false to see if obs present in current view?
+	"""
+	return NotImplemented
+
+class xml_writer():
+    def __init__(self):
+	"""
+	Indices: Index range for evalueation
+	create_obs_list -> append_frame_coord_to_rtk_list -> collection = TrackletCollections
+	"""
+	self.tracklet_collection = TrackletCollection()
+	return None
+    def add_obs_to_tracklet_collection(self, mdr, cap_front_rtk, cap_rear_rtk, obs_centroid, first_frame=0):
+	"""
+	Parameters:
+	-------------------
+	mdr: dict of obstacle dimension information
+	cap_front_rtk_interp: list of rtk data synced to image frames
+	cap_rear_rtk_interp: list of rtk data synced to image frames
+	obs_centroid_interp: list of rtk data synced to image frames
+	"""
+	assert mdr['object_type'] is not None
+	assert mdr['l'] is not None
+	assert mdr['w'] is not None
+	assert mdr['h'] is not None
+	obs_tracklet = Tracklet(object_type=mdr['object_type'], l=mdr['l'], w=mdr['w'], h=mdr['h'], first_frame=0)
+	obs_tracklet.poses=estimate_obstacle_poses(
+	    cap_front_rtk=cap_front_rtk_interp,
+	    cap_rear_rtk=cap_rear_rtk_interp,
+	    obs_centroid_interp =obs_centroid_interp
+	)
+	self.trakclet_collection.append(obs_tracklet)
+    def export_tracklet_to_file(self, tracklet_path, prefix='./'):
+	"""
+	Parameters
+	--------------------
+	e.g. tracklet_path: 'tracklet_labels.xml'
+	"""
+	tracklet_path = os.path.join(prefix, tracklet_path)
+	collection.write_xml(tracklet_path)
+	
+
 
 if __name__ == "__main__":
     xml_reader().parse_xml_tracklet('/root/tracklet_labels.xml')
