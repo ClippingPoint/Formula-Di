@@ -88,7 +88,7 @@ class Obs(object):
         return str(self.tracklet_idx) + ' ' + str(self.object_type)
 
 # Or maybe tracklet reader? 
-class xml_reader():
+class Xml_Reader():
     def __init__(self):
 	"""
 	Indices: Index range for evaluation
@@ -98,6 +98,9 @@ class xml_reader():
 	"""
 	By default evaluate all frames
 	TODO: parameterize frame range later?
+	Parameters:
+	--------------------
+	xml_path: absolute path
 	"""
 	obs_list = []
 	tracklets = xml_parser.parse_xml(xml_path)
@@ -115,7 +118,7 @@ class xml_reader():
 	"""
 	return NotImplemented
 
-class xml_writer():
+class Xml_Writer():
     def __init__(self):
 	"""
 	Indices: Index range for evalueation
@@ -155,4 +158,4 @@ class xml_writer():
 
 
 if __name__ == "__main__":
-    xml_reader().parse_xml_tracklet('/root/tracklet_labels.xml')
+    Xml_Reader().parse_xml_tracklet('/root/tracklet_labels.xml')
