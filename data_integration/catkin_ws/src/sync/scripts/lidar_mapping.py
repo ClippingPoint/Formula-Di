@@ -1,6 +1,7 @@
 ##
 ## Based on paper 
 ## Multi-View 3D Object Detection Network for Autonomous Driving
+## TODO: wrap in a class
 
 import numpy as np
 from collections import defaultdict
@@ -109,6 +110,7 @@ def point_cloud_to_front_view(points,
 
 # For generating sliced height map 
 # Maybe we can do this calculation on the fly to save some bandwidth?
+# Get max for certain cell
 def get_top_sliced_height_maps(top_, y_top_, x_top_, height_, num_channel, height_range_):
     	"""
 	Parameters:
@@ -121,7 +123,52 @@ def get_top_sliced_height_maps(top_, y_top_, x_top_, height_, num_channel, heigh
 	height_total = height_range_[1] - height_range_[0]
 	bin_width = height_total./num_channel
 	height_slices_map = defaultdict(np.array)	
+
 	# PLACEHOLDERS
+	for it in range(num_channel):
+		height_slices_map[it] = np.copy(top_)
+	for it, val in enumerate(height_):
+		h_key = int(val./num_channel)
+		height_slices_map[h_key][y_top_[it], x_top_[it]] = val
+
+	return height_slices_map
+
+def get_density_map(top_, y_top_, x_top_, height_):
+	"""
+	Okay, I do not know how to use np.count_nonzero properly
+	"""
+	density = np.copy(top_)
+	for it, val in enumerate(height_):
+		if val > 0:
+			density[y_top_[it], x_top_[it]] += 1
+	return density
+
+def get_reflectance_map(top_, y_top_, x_top_, r_):
+	r_map = np.copy(top_)
+	r_map[y_top_, x_top_] = r
+	return r_map
+
+def point_cloud_to_top(points, res=0.1, side_range=(-10., 10.), fwd_range=(-10., 10.), height_range=(-2, 2),):
+	l_and = lambda *x: np.logical_and.reduce(x)
+	l_or = lambda *x: np.logical_or.reduce(x)
+	"""
+	Create an 2D birds eye view of (lidar) point cloud data
+	http://ronny.rest/tutorials/module/pointclouds_01/point_cloud_birdseye/
+	Parameters:
+	-----------
+	points: (Nx1 numpy array)
+	x,y,z_range: (float, float) tuple
+	res: (float) Resolution (pixel per metre) to use. Each output pixel
+	will represent an square region res x res in size
+	postive x: vehicle forward
+	postive y: vehicle left
+	postive z: vehilce up
+	TODO: intensity filter
+	-----------
+	retur:
+	-----------
+	"""
+
 	x_points = points[:, 0]
 	y_points = points[:, 1]
     	z_points = points[:, 2]

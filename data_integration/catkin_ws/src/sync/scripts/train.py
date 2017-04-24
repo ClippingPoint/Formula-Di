@@ -4,6 +4,7 @@
 from tracklet_io import *
 from image_proc import *
 from syncer import *
+from lidar_mapping import *
 # from collections import defaultdict
 
 xml_path = '/root/tracklet_labels.xml'
@@ -19,7 +20,9 @@ syncer = Syncer(image_raw_path, lidar_raw_path)
 msg_count = syncer.get_lidar_message_count()
 #print(msg_count)
 
-syncer.sync_to_lidar_frame(10)
+lidar_pc, image_arr = syncer.sync_to_lidar_frame(10)
+get_
+
 
 #for iter in range(msg_count):
 
