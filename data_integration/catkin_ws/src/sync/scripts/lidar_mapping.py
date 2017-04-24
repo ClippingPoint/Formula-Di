@@ -128,7 +128,7 @@ def get_top_sliced_height_maps(top_, y_top_, x_top_, height_, num_channel, heigh
 	for it in range(num_channel):
 		height_slices_map[it] = np.copy(top_)
 	for it, val in enumerate(height_):
-		h_key = int(val./num_channel)
+		h_key = np.floor(val./bin_width)
 		height_slices_map[h_key][y_top_[it], x_top_[it]] = val
 
 	return height_slices_map
