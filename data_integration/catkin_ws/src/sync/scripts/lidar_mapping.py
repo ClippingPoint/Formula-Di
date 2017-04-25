@@ -1,6 +1,7 @@
-##
 ## Based on paper 
 ## Multi-View 3D Object Detection Network for Autonomous Driving
+## It seems rounding to integer functions just for providing x-axis, y-axis values for displaying 
+## What if we keep in float and velodyne coordinates?
 ## TODO: wrap in a class
 
 import numpy as np
@@ -121,14 +122,14 @@ def get_top_sliced_height_maps(top_, y_top_, x_top_, height_, num_channel, heigh
 	height_range_: LiDAR height information
         """
 	height_total = height_range_[1] - height_range_[0]
-	bin_width = height_total./num_channel
+	bin_width = height_total/num_channel
 	height_slices_map = defaultdict(np.array)	
 
 	# PLACEHOLDERS
 	for it in range(num_channel):
 		height_slices_map[it] = np.copy(top_)
 	for it, val in enumerate(height_):
-		h_key = np.floor(val./bin_width)
+		h_key = np.floor(val/bin_width)
 		height_slices_map[h_key][y_top_[it], x_top_[it]] = val
 
 	return height_slices_map
@@ -206,13 +207,13 @@ def point_cloud_to_top(points, res=0.1, side_range=(-10., 10.), fwd_range=(-10.,
     # FILL PIXEL VALUES IN IMAGE ARRAY
     # pixel_value is height channel
     	# top[y_top, x_top] = clipped_height
-	if not has_reflectance:
+	if has_reflectance is None:
 	    r_points = None 
 	    
 	return top, y_top, x_top, clipped_height, r_points 
 
 ##---------------------------------------------------------------------------------------
-## Define "Backward" transformation Point Cloud to 2D view
+## Define "Inverse" transformation Point Cloud to 2D view
 ##---------------------------------------------------------------------------------------
-if __name__ == "__main__":
-	return
+## As in 04/24/17 
+## we are keeping all calculations in velodyne coordinates both under 2D/3D coordinatess

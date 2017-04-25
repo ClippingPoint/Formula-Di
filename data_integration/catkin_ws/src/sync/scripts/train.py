@@ -21,8 +21,9 @@ msg_count = syncer.get_lidar_message_count()
 #print(msg_count)
 
 lidar_pc, image_arr = syncer.sync_to_lidar_frame(10)
-get_
 
+print(lidar_pc.shape)
+print(image_arr.shape)
 
 #for iter in range(msg_count):
 

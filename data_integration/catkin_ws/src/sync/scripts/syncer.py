@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from lidar_views import *
 from image_proc import *
+from lidar_proc import *
 
 # TODO: interpolate lidar data?
 
@@ -66,7 +67,7 @@ class Syncer():
 	Extract synced single frame, lidar, image and other data
 	All sync to lidar_frame_id
 	"""	 
-	lidar_pc = self.get_lidar_df_by_lidar_id(lidar_frame_id)
+	lidar_pc = lidar_to_pc2(self.get_lidar_df_by_lidar_id(lidar_frame_id))
 	image_arr = self.get_image_sync_by_lidar_id(lidar_frame_id)
 
 	return lidar_pc, image_arr

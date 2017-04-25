@@ -1,4 +1,6 @@
-import rospy
+#import rospy
+import sensor_msgs.point_cloud2 as pc2
+import numpy as np
 
 """
 Add your lidar point cloud preprocessor here
@@ -14,3 +16,12 @@ class Lidar_Proc():
 	return
     def method_1(self):
 	NotImplementedError
+
+
+def lidar_to_pc2(lidar_msg):
+    """
+    Parameters:
+    ------------------
+    ------------------
+    """
+    return np.array(list(pc2.read_points(lidar_msg)))
