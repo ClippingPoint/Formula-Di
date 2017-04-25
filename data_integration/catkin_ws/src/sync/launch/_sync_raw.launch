@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+	<!-- all vars that included.launch requires must be set -->
+	<!-- <arg name="hoge" value="fugs"/> -->
+	<!-- <arg name="foo" default="1" doc="default value"/>-->
+	<!-- <arg name="foo" value="bar" doc="constant cannot be override" />" -->
+
+	<!-- read value of arg -->
+	<!-- <param name="param" value="$(arg hoge)"> -->
+	<!-- <node name="listener.py" pkg="sync" type="?"> -->
+	<!-- <param if="$(arg foo)" name="image_transport" value="foo">-->
+	<!-- <param name="image_dir" value="$(find my_project_dir/resources/some.txt)">-->
+	<!-- <param name="image_dir" value="resources/some.txt">-->
+	<!-- </node>-->
+</launch>

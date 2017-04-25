@@ -26,6 +26,29 @@ print(lidar_pc.shape)
 print(image_arr.shape)
 
 #for iter in range(msg_count):
+front_depth = point_cloud_to_front_view(
+			lidar_pc, 
+			v_res=1.33, 
+			h_res=1, 
+			v_fov=(-24.0, 2.0),
+			val="depth",
+			y_fudge=3.0)
+
+front_r = point_cloud_to_front_view(
+			lidar_pc, 
+			v_res=1.33, 
+			h_res=1, 
+			v_fov=(-24.0, 2.0),
+			val="reflectance",
+			y_fudge=3.0)
+
+front_height = point_cloud_to_front_view(
+			lidar_pc, 
+			v_res=1.33, 
+			h_res=1, 
+			v_fov=(-24.0, 2.0),
+			val="height",
+			y_fudge=3.0)
 
 ###---------------------------------------------
 # Export

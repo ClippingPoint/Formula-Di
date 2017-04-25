@@ -82,19 +82,22 @@ def point_cloud_to_front_view(points,
 
     # PROJECT INTO FRONT VIEW
     # FRONT VIEW Coordinate(RU) x-pos R, y-pos U 
-    x_front = np.floor(np.arctan2(y_lidar, x_lidar)/ h_res_rad)
-    y_front = np.floor(np.arctan2(z_lidar, d_lidar)/ v_res_rad)
+    x_front = np.floor(np.arctan2(y_lidar, x_lidar)/ h_res_rad).astype(np.int32)
+    y_front = np.floor(np.arctan2(z_lidar, d_lidar)/ v_res_rad).astype(np.int32)
 
 
     # SHIFT COORDINATES TO MAKE 0,0 THE MINIMUM
-    x_max = 360.0 / h_res       # Theoretical max x value after shifting
+    # 1 + to make sure that axis value is within range
+    x_max = 1 + int(np.ceil(360.0 / h_res))       # Theoretical max x value after shifting
 
-    y_max = v_fov_total / v_res # Theoretical max x value after shifting
+#    y_max = v_fov_total / v_res # Theoretical max x value after shifting
 
-    y_max += y_fudge            # Fudge factor if the calculations based on
+#    y_max += y_fudge            # Fudge factor if the calculations based on
                                 # spec sheet do not match the range of
                                 # angles collected by in the data.
-
+    
+    # 1 + to make sure that axis value is within range
+    y_max = 1 + int(np.ceil(v_fov_total / v_res + y_fudge))
     # WHAT DATA TO USE TO ENCODE THE VALUE FOR EACH PIXEL
     if val == "reflectance":
         pixel_values = r_lidar
