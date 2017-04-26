@@ -3,7 +3,7 @@
 ## It seems rounding to integer functions just for providing x-axis, y-axis values for displaying 
 ## What if we keep in float and velodyne coordinates?
 ## TODO: wrap in a class
-
+from __future__ import division
 import numpy as np
 from collections import defaultdict
 
@@ -115,24 +115,29 @@ def point_cloud_to_front_view(points,
 # For generating sliced height map 
 # Maybe we can do this calculation on the fly to save some bandwidth?
 # Get max for certain cell
-def get_top_sliced_height_maps(top_, y_top_, x_top_, height_, num_channel, height_range_):
+def get_top_sliced_height_maps(top_, y_top_, x_top_, height_, num_channel, height_range):
     	"""
 	Parameters:
         ------------------------------------------------
 	top: np.zeros array with y_top, x_top dimension
         num_channel: Number of bins e.g. 14
 	Assume uniform distribution over height
-	height_range_: LiDAR height information
+	height_range_: LiDAR height information, should be SAME as used in 
+			point_cloud_to_top!!
         """
-	height_total = height_range_[1] - height_range_[0]
+	height_total = height_range[1] - height_range[0]
 	bin_width = height_total/num_channel
 	height_slices_map = defaultdict(np.array)	
 
 	# PLACEHOLDERS
 	for it in range(num_channel):
 		height_slices_map[it] = np.copy(top_)
-	for it, val in enumerate(height_):
-		h_key = np.floor(val/bin_width)
+#	for k, v in height_slices_map.iteritems():
+#		print(k)
+	# SHIFT height mapping to 0 to positive range
+	height_zero_base = height_ - height_range[0]
+	for it, val in enumerate(height_zero_base):
+		h_key = int(np.floor(val/bin_width))
 		height_slices_map[h_key][y_top_[it], x_top_[it]] = val
 
 	return height_slices_map
@@ -149,10 +154,10 @@ def get_density_map(top_, y_top_, x_top_, height_):
 
 def get_reflectance_map(top_, y_top_, x_top_, r_):
 	r_map = np.copy(top_)
-	r_map[y_top_, x_top_] = r
+	r_map[y_top_, x_top_] = r_
 	return r_map
 
-def point_cloud_to_top(points, res=0.1, side_range=(-10., 10.), fwd_range=(-10., 10.), height_range=(-2, 2),):
+def point_cloud_to_top(points, res=0.1, side_range=(-10., 10.), fwd_range=(-10., 10.), height_range=(-2, 2),has_reflectance=True):
 	l_and = lambda *x: np.logical_and.reduce(x)
 	l_or = lambda *x: np.logical_or.reduce(x)
 	"""
@@ -169,7 +174,12 @@ def point_cloud_to_top(points, res=0.1, side_range=(-10., 10.), fwd_range=(-10.,
 	postive z: vehilce up
 	TODO: intensity filter
 	-----------
-	retur:
+	return:
+	top: numpy zero 3d mapping
+	y_top: y_axis coordinates
+	x_top: x_axis coordinates
+	clipped_height: as named
+	r_points: reflectance
 	-----------
 	"""
 

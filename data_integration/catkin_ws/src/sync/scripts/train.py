@@ -26,6 +26,11 @@ print(lidar_pc.shape)
 print(image_arr.shape)
 
 #for iter in range(msg_count):
+###---------------------------------------------
+# Seems there are different physical parameters are used according to 
+# http://ronny.rest/blog/post_2017_03_25_lidar_to_2d/ 
+# 20Hz?
+###---------------------------------------------
 front_depth = point_cloud_to_front_view(
 			lidar_pc, 
 			v_res=1.33, 
@@ -50,9 +55,27 @@ front_height = point_cloud_to_front_view(
 			val="height",
 			y_fudge=3.0)
 
+top_pc, y_top, x_top, c_height, r = point_cloud_to_top(lidar_pc,
+			    res=0.1,
+			    side_range=(-10.0, 10.0),
+			    fwd_range=(-10., 10.),
+			    height_range=(-2, 2),
+			    has_reflectance=True)
+
+
+
+height_sliced_map = get_top_sliced_height_maps(
+				top_pc,
+				y_top,
+				x_top,
+				c_height,
+				num_channel=14,
+				height_range=(-2, 2))
+				
+
+density_map = get_density_map(top_pc, y_top, x_top, c_height)
+reflectance_map = get_reflectance_map(top_pc, y_top, x_top, r)
 ###---------------------------------------------
 # Export
 ###---------------------------------------------
-
-
 
