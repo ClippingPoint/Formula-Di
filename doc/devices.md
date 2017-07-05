@@ -30,3 +30,8 @@ Reprojection Error
 
 [Dataspeed Inc](https://bitbucket.org/DataspeedInc/)
 [Dataspeed ROS binary](https://bitbucket.org/DataspeedInc/ros_binaries)
+
+
+## Projection matrix
+
+[3x4 Projection Matrix](http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/EPSRC_SSAZ/node3.html)
